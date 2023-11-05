@@ -1,4 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Google Map App
+
+## Deploy
+
+deploy on vercel [link](https://google-map-app-lilac.vercel.app/)
+
+## Introduction
+
+## Engines
+
+node version : 16.17.1
+npm version : 9.5.1
+
+## Allen Terminal Shortcut
+
+nano ~/.bashrc
+
+source ~/.bashrc
+
+```bash
+alias gp='git pull'
+alias gs='git stash'
+alias gss='git stash save'
+alias gpop='git stash pop'
+alias grb='git rebase'
+alias glo='git log --oneline'
+alias gck='git checkout'
+alias gckb='git checkout -b'
+alias good='git checkout dev;git pull;git checkout -;git rebase dev;git push'
+
+alias ndv='npm run dev'
+alias cr='clear'
+```
 
 ## Getting Started
 
