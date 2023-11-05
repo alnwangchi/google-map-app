@@ -32,6 +32,14 @@ alias ndv='npm run dev'
 alias cr='clear'
 ```
 
+## Strick
+
+一次性整理整個專案格式
+
+```bash
+npx prettier --write "**/*.txs"
+```
+
 ## Getting Started
 
 First, run the development server:
