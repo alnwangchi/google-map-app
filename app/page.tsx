@@ -1,24 +1,28 @@
-'use client';
+import MapWrapper from '@/components/map/MapWrapper';
+import { storesConverter } from '@/utils/converter';
 
-import MapComponent from '@/component/MapComponent';
-import { Wrapper, Status } from '@googlemaps/react-wrapper';
+async function getStores() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/stores`, {
+    headers: {
+      'content-type': 'application/json;charset=UTF-8'
+    },
+    cache: 'no-store'
+  });
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+  return await res.json();
+}
 
-// Use Taipei Train Station as default center
-const DEFAULT_CENTER: google.maps.LatLngLiteral = {
-  lat: 25.048111960214577,
-  lng: 121.51705041522831
-};
-const DEFAULT_ZOOM: number = 12;
+export default async function Home() {
+  const storesResponse = await getStores();
 
-export default function Home() {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY || '';
-
-  console.log({ apiKey });
+  const stores = storesConverter(storesResponse);
+  console.log(stores);
   return (
     <main className="h-screen w-screen">
-      <Wrapper apiKey={apiKey}>
-        <MapComponent center={DEFAULT_CENTER} zoom={DEFAULT_ZOOM} />
-      </Wrapper>
+      <MapWrapper />
     </main>
   );
 }
