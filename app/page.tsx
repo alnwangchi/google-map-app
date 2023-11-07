@@ -1,4 +1,5 @@
 import MapWrapper from '@/components/map/MapWrapper';
+import { TStores } from '@/interface/I_Stores';
 import { storesConverter } from '@/utils/converter';
 
 async function getStores() {
@@ -19,10 +20,10 @@ export default async function Home() {
   const storesResponse = await getStores();
 
   const stores = storesConverter(storesResponse);
-  console.log(stores);
+
   return (
     <main className="h-screen w-screen">
-      <MapWrapper />
+      <MapWrapper stores={stores as TStores[]} />
     </main>
   );
 }

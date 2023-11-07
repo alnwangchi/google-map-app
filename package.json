@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@googlemaps/react-wrapper": "^1.1.35",
     "@radix-ui/react-hover-card": "^1.0.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "google-map-react": "^2.2.1",
     "googleapis": "^128.0.0",
     "lucide-react": "^0.292.0",
     "next": "13.5.6",
@@ -22,7 +22,8 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/google.maps": "^3.54.6",
+    "@types/google-map-react": "^2.1.10",
+    "@types/google.maps": "^3.54.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
