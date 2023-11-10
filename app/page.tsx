@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/stores`, {
+        const response = await fetch(`/api/stores`, {
           headers: {
             'Content-Type': 'application/json;charset=UTF-8'
           },
