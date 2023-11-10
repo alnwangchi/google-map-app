@@ -8,6 +8,8 @@ const roboto = Roboto({
   subsets: ['latin']
 });
 
+export const fetchCache = 'force-no-store';
+
 export const metadata: Metadata = {
   title: 'Allen Jamie are good',
   description: 'oh ho ho'
