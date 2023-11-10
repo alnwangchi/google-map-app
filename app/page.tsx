@@ -11,12 +11,15 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/stores`, {
-          headers: {
-            'Content-Type': 'application/json;charset=UTF-8'
-          },
-          cache: 'no-store'
-        });
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_DOMAIN}/api/stores?random=${Math.random()}`,
+          {
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            cache: 'no-store'
+          }
+        );
 
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);

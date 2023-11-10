@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
   if (req.method !== 'GET') NextResponse.json({ error: 'Methods not allowed' }, { status: 405 });
-  console.log(process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL);
+  // console.log(process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL);
   try {
     const auth = new google.auth.GoogleAuth({
       credentials: {
@@ -24,6 +24,7 @@ export async function GET(req: Request) {
       valueRenderOption: 'UNFORMATTED_VALUE'
     });
     const result = response.data.values;
+    // console.log('🚀 ~ result:', result);
 
     return NextResponse.json(result);
   } catch (error) {
