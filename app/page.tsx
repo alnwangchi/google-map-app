@@ -17,7 +17,7 @@ export default function Home() {
             headers: {
               'Content-Type': 'application/json;charset=UTF-8'
             },
-            cache: 'no-store'
+            cache: 'no-cache'
           }
         );
 
