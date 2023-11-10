@@ -1,7 +1,8 @@
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
-import marker from '@/images/marker.svg';
+import { Marker as MarkerGoogle, InfoWindow, useMarkerRef } from '@vis.gl/react-google-maps';
+import markerIcon from '@/images/marker.svg';
 import Image from 'next/image';
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import {
   Card,
   CardContent,
@@ -16,6 +17,7 @@ type TMarker = {
   name: string;
   recycleQTY: number;
   content?: string;
+  position: { lat: number; lng: number };
 };
 
 // 分類提醒以 recycleQTY 判斷，用顏色圈圈表示，超過10紅色，小於3綠色，其他黃色
@@ -34,15 +36,21 @@ function renderBadge(recycleQTY: number) {
   );
 }
 
-const Marker: FC<TMarker> = ({ name = '80嵐', recycleQTY = 1, content = '' }) => {
+const Marker: FC<TMarker> = ({ name = '80嵐', recycleQTY = 1, content = '', position }) => {
+  const [open, setOpen] = useState(false);
+  const [markerRef, marker] = useMarkerRef();
+
   return (
     <div>
-      <HoverCard>
-        <HoverCardTrigger className="cursor-pointer">
-          <Image src={marker} width={20} height={27} alt="marker" />
-        </HoverCardTrigger>
-        <HoverCardContent side="top" sideOffset={12}>
-          <Card className="relative border-none shadow-none drop-shadow-none">
+      <MarkerGoogle
+        position={position}
+        ref={markerRef}
+        onMouseOver={() => setOpen(true)}
+        onMouseOut={() => setOpen(false)}
+      />
+      {open ? (
+        <InfoWindow anchor={marker}>
+          <Card className="relative flex border-none shadow-none drop-shadow-none">
             <div className="absolute right-6 top-6">{renderBadge(recycleQTY)}</div>
             <CardHeader>
               <CardTitle className="">{name}</CardTitle>
@@ -55,8 +63,8 @@ const Marker: FC<TMarker> = ({ name = '80嵐', recycleQTY = 1, content = '' }) =
             </CardContent>
             <CardFooter></CardFooter>
           </Card>
-        </HoverCardContent>
-      </HoverCard>
+        </InfoWindow>
+      ) : null}
     </div>
   );
 };
