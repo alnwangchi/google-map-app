@@ -15,8 +15,8 @@ export default function Home() {
           headers: {
             'Content-Type': 'application/json;charset=UTF-8'
           },
-          cache: 'no-cache',
-          next: { revalidate: 10 }
+          cache: 'no-store',
+          next: { revalidate: 0 }
         });
 
         if (!response.ok) {
