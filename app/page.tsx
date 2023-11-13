@@ -6,12 +6,12 @@ import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [data, setData] = useState<TStores[]>([]);
-  console.log('🚀 ~ data:', data);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`/api/stores`, {
+          method: 'GET',
           headers: {
             'Content-Type': 'application/json;charset=UTF-8'
           },

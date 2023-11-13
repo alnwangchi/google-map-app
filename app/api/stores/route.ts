@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 import { NextResponse } from 'next/server';
 
-export const fetchCache = 'force-no-store';
+export const dynamic = 'force-dynamic';
 
 export async function GET(req: Request) {
   if (req.method !== 'GET') NextResponse.json({ error: 'Methods not allowed' }, { status: 405 });

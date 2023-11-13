@@ -17,9 +17,7 @@ interface MapWrapperProps {
 }
 
 export default function MapWrapper({ stores }: MapWrapperProps) {
-  console.log('🚀 ~ stores:', stores);
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY || '';
-  console.log('🚀 ~ apiKey:', apiKey);
 
   return (
     <div style={{ height: '100vh', width: '100%' }}>
