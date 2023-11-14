@@ -47,6 +47,7 @@ const Marker: FC<TMarker> = ({ name = '80嵐', recycleQTY = 1, content = '', pos
         ref={markerRef}
         onMouseOver={() => setOpen(true)}
         onMouseOut={() => setOpen(false)}
+        onClick={() => setOpen((prev) => !prev)}
       />
       {open ? (
         <InfoWindow anchor={marker}>
