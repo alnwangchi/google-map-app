@@ -74,3 +74,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* overwrite */
+.gm-ui-hover-effect {
+  top: 0 !important;
+  right: 0 !important;
+}

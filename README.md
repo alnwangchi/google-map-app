@@ -1,5 +1,13 @@
 # Google Map App
 
+此專案在做什麼?
+
+- 資料欄位的確認
+- 多組學生
+- 類型確認
+- url 帶上 sheet id 跟 type
+- 建立 gcp 服務取得 private key
+
 ## Deploy
 
 deploy on vercel [link](https://google-map-app-lilac.vercel.app/)
@@ -39,6 +47,19 @@ alias cr='clear'
 ```bash
 npx prettier --write "**/*.txs"
 ```
+
+## data flow and fields
+
+| 欄位名稱   | 中文 |
+| ---------- | ---- |
+| name       | 店名 |
+| lat        | 緯度 |
+| lng        | 經度 |
+| recycleQTY | 數量 |
+
+[google sheet](https://docs.google.com/spreadsheets/d/11eDBfQLmb35Nu3fvps2EgxvtRMoyV5YSlnGhbf3or2Q/edit?usp=sharing)
+
+每次進入應用程式後都會抓取上表的資料將座標 Marker 顯示在對應位置
 
 ## Getting Started
 

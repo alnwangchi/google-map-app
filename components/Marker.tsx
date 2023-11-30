@@ -45,8 +45,8 @@ const Marker: FC<TMarker> = ({ name = '80嵐', recycleQTY = 1, content = '', pos
       <MarkerGoogle
         position={position}
         ref={markerRef}
-        onMouseOver={() => setOpen(true)}
-        onMouseOut={() => setOpen(false)}
+        // onMouseOver={() => setOpen(true)}
+        // onMouseOut={() => setOpen(false)}
         onClick={() => setOpen((prev) => !prev)}
       />
       {open ? (
