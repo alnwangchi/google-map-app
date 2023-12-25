@@ -61,6 +61,22 @@ npx prettier --write "**/*.txs"
 
 每次進入應用程式後都會抓取上表的資料將座標 Marker 顯示在對應位置
 
+## Develop with Docker
+
+使用 Docker 來開發 (已實現 Hot Reload 功能)
+
+> Develop
+
+```bash
+npm run dev:docker
+```
+
+> Build
+
+```bash
+npm run build:docker
+```
+
 ## Getting Started
 
 First, run the development server:
